@@ -1,0 +1,134 @@
+name: Compatibility report or game request
+description: Say how a game ran with SSF Play on your Mac, or ask for a game that has no app yet.
+title: "[Compatibility] "
+labels: ["compatibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form takes two things: a report of how a game ran with one of the apps on your Mac, and a request for a game that has no app yet.
+
+        **A report.** Every status in the README comes from a single machine, so a report from another Mac is useful, also when everything worked. Please describe how it ran in words, such as "smooth", "playable" or "stutters in menus", and leave frame-rate numbers out: without a controlled measurement they cannot be compared.
+
+        **A request.** Under App choose "A game that has no app yet", choose "Does not apply (a request)" under Edition and under Result, and name the game under Notes. Everything else can stay empty, and you do not have to own the game. If you like, change the start of the title to `[Request]`. Requests are welcome; a request is noted, not promised. Games with kernel-level anti-cheat (FACEIT and the like) are not supported. The app for Grand Theft Auto V is already in testing and has no date, so it needs no request.
+
+        [SUPPORT.md](https://github.com/Starry-Sky-Federation/ssf-play/blob/HEAD/SUPPORT.md) says where to find everything this form asks for.
+
+  - type: dropdown
+    id: app
+    attributes:
+      label: App
+      options:
+        - SSF Play CS2
+        - SSF Play BO2
+        - SSF Play BO2 MP
+        - SSF Play BO2 Zombies
+        - SSF Play MW3
+        - A game that has no app yet (a request; name it under Notes)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: For a report
+      description: Tick this if you are reporting how a game ran. For a request, leave it empty.
+      options:
+        - label: The game is in my own Steam library and was installed through Steam.
+          required: false
+
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Edition
+      options:
+        - Community Build (from the Releases of this repository)
+        - Full edition (from play.ssf.network)
+        - Does not apply (a request)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options:
+        - Runs well
+        - Runs, with problems (describe them below)
+        - Starts, but cannot be played
+        - Does not start
+        - Does not apply (a request)
+    validations:
+      required: true
+
+  - type: textarea
+    id: version
+    attributes:
+      label: Version stamp
+      description: |
+        For a report. The whole output of this command in Terminal:
+        `cat ~/Library/Application\ Support/SSF\ Play/wine/VERSION-ssfplay`
+      render: text
+      placeholder: |
+        version=1.0.0
+        flavor=full
+        wine=wine-11.0
+        patches=0123456789ab
+        dxmt=v0.80-247-gfb45156
+        x87sidecar=v1.7.0
+        built=20261002
+
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and build
+      description: "For a report. The output of `sw_vers` in Terminal. On a beta the build number (the BuildVersion line) matters."
+      placeholder: "macOS 27.2, build number from the BuildVersion line"
+
+  - type: input
+    id: chip
+    attributes:
+      label: Mac model, chip and memory
+      description: "For a report. Apple menu, About This Mac. In Terminal, `sysctl -n machdep.cpu.brand_string` prints the chip."
+      placeholder: "MacBook Air 15-inch, Apple M4, 16 GB"
+
+  - type: dropdown
+    id: graphics
+    attributes:
+      label: Graphics layer
+      description: "For a report. For 64-bit games the title bar of the Steam window shows it (`Graphics: DXMT` or `Graphics: D3DMetal`), and so does the F7 panel."
+      options:
+        - DXMT (the default)
+        - D3DMetal (I installed it myself from Apple's Game Porting Toolkit)
+        - Not sure
+
+  - type: dropdown
+    id: x87
+    attributes:
+      label: x87 accelerator
+      description: "For a report. Only the apps for 32-bit games use it. Their title bar shows `x87 acceleration: on` or `off`."
+      options:
+        - "On"
+        - "Off"
+        - Does not apply (SSF Play CS2, or the Community Build)
+        - Not sure
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: |
+        For a report: how far you got (menus, a match, an hour of play), what you played, what went wrong if anything, and any setting you changed.
+        For a request: the name of the game and, if you have it, the address of its Steam store page. Say whether you own it on Steam; you do not have to.
+    validations:
+      required: true
+
+  - type: textarea
+    id: log
+    attributes:
+      label: Log (for a report, if something went wrong)
+      description: |
+        The log is `~/Library/Logs/<App name>.log`. Paste at least the last 200 lines of the failing run. This copies them to the clipboard:
+        `tail -n 200 ~/Library/Logs/"SSF Play CS2.log" | pbcopy`
+        The log contains paths with the name of your macOS account; replace it if you prefer.
+      render: text

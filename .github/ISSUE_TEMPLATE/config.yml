@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Purchases, download links and refunds
+    url: https://github.com/Starry-Sky-Federation/ssf-play/blob/HEAD/SUPPORT.md#where-to-go
+    about: Not in a public issue. Write to support@ssf.network from the e-mail address you paid with.
+  - name: Security problem
+    url: https://github.com/Starry-Sky-Federation/ssf-play/security/policy
+    about: Not in a public issue. SECURITY.md says how to report it (security@ssf.network).
+  - name: Setup guide and troubleshooting
+    url: https://play-docs.ssf.network
+    about: The documentation covers installation, each game, the hotkeys and common problems.

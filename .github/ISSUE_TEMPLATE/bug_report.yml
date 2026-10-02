@@ -1,0 +1,175 @@
+name: Bug report
+description: Something in an SSF Play app does not work. The log is needed.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting. Please go through "Before you report" in [SUPPORT.md](https://github.com/Starry-Sky-Federation/ssf-play/blob/HEAD/SUPPORT.md) first; it settles many reports. The same file says where to find everything this form asks for.
+
+        A report without the log waits until the log is attached.
+
+        This page is public. Do not paste an order number, the e-mail address you paid with or a download link. For purchases and refunds write to support@ssf.network. For a security problem write to security@ssf.network and do not open an issue.
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before you report
+      options:
+        - label: I am on an Apple Silicon Mac.
+          required: true
+        - label: The game is in my own Steam library and was installed through Steam.
+          required: true
+        - label: This is not about an anti-cheat ban or a game with kernel-level anti-cheat.
+          required: true
+        - label: I read SUPPORT.md.
+          required: true
+
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Edition
+      options:
+        - Community Build (from the Releases of this repository)
+        - Full edition (from play.ssf.network)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: app
+    attributes:
+      label: App
+      description: The app you opened when the problem appeared.
+      options:
+        - SSF Play CS2
+        - SSF Play BO2
+        - SSF Play BO2 MP
+        - SSF Play BO2 Zombies
+        - SSF Play MW3
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where the problem is
+      options:
+        - Opening the disk image or the app
+        - First-time setup
+        - The Steam window (black, not reacting, not connecting)
+        - Starting a game
+        - While a game is running (graphics, sound, input, crash)
+        - Switching the graphics layer or installing D3DMetal (F6, F7)
+        - The x87 accelerator (F8)
+        - Language of the dialogs or the window
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: version
+    attributes:
+      label: Version stamp
+      description: |
+        The whole output of this command in Terminal:
+        `cat ~/Library/Application\ Support/SSF\ Play/wine/VERSION-ssfplay`
+        If the first-time setup did not get that far, give the version from the name of the disk image you downloaded.
+      render: text
+      placeholder: |
+        version=1.0.0
+        flavor=community
+        wine=wine-11.0
+        patches=0123456789ab
+        dxmt=v0.80-247-gfb45156
+        built=20261002
+    validations:
+      required: true
+
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and build
+      description: "The output of `sw_vers` in Terminal. On a beta the build number (the BuildVersion line) matters."
+      placeholder: "macOS 27.2, build number from the BuildVersion line"
+    validations:
+      required: true
+
+  - type: input
+    id: chip
+    attributes:
+      label: Mac model, chip and memory
+      description: "Apple menu, About This Mac. In Terminal, `sysctl -n machdep.cpu.brand_string` prints the chip."
+      placeholder: "MacBook Pro 16-inch, Apple M5 Max, 64 GB"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: graphics
+    attributes:
+      label: Graphics layer
+      description: "For 64-bit games the title bar of the Steam window shows it (`Graphics: DXMT` or `Graphics: D3DMetal`), and so does the F7 panel."
+      options:
+        - DXMT (the default)
+        - D3DMetal (I installed it myself from Apple's Game Porting Toolkit)
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: x87
+    attributes:
+      label: x87 accelerator
+      description: "Only the apps for 32-bit games use it. Their title bar shows `x87 acceleration: on` or `off`."
+      options:
+        - "On"
+        - "Off"
+        - Does not apply (SSF Play CS2, or the Community Build)
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you expected and what happened instead. The exact text of a dialog helps; a screenshot of it is fine in any language.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open SSF Play CS2
+        2. Sign in to Steam
+        3. Press F9
+        4. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: log
+    attributes:
+      label: Log
+      description: |
+        The log is `~/Library/Logs/<App name>.log`. Paste at least the last 200 lines of the failing run. This copies them to the clipboard:
+        `tail -n 200 ~/Library/Logs/"SSF Play CS2.log" | pbcopy`
+        The log contains paths with the name of your macOS account; replace it if you prefer.
+        If the app never started and there is no log file, write that here.
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: panel
+    attributes:
+      label: Diagnostics panel (F7)
+      description: Press F7 in the Steam window, take a picture of the panel (Shift-Command-4, then Space, then click the dialog) and drag it here. If the Steam window never appears, say so.
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+      description: "For example: whether it worked with an earlier version, the content of `~/Library/Application Support/SSF Play/<App name>.env` if you made one, a crash report from Console."

@@ -1,0 +1,10 @@
+# Shown as the "Sponsor" button on the repository page.
+#
+# Enable a line only after the account behind it exists and has been approved.
+# A handle that belongs to somebody else sends people's money to a stranger.
+#
+# github: [ACCOUNT]        # GitHub Sponsors: not set up yet
+# ko_fi: HANDLE            # Ko-fi: not set up yet
+#
+# The website, where the full edition is sold.
+custom: ["https://play.ssf.network"]
