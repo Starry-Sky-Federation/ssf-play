@@ -6,6 +6,19 @@ This repository holds no code. It is the place for this description, the downloa
 
 SSF Play is not affiliated with Valve, Activision, Take-Two Interactive, CodeWeavers or Apple, and is not endorsed by any of them. Please read [Limits](#limits) before you download or buy.
 
+## What you need
+
+| | Requirement | Note |
+|:-:|---|---|
+| 💻 | **A Mac with Apple silicon** | M1 or later. Intel Macs are not supported. |
+| 🖥️ | **macOS 27** | Tested on the macOS 27 beta only. |
+| 🔁 | **Rosetta 2** | If it is missing, the app installs it for you with one click. |
+| 🌐 | **An internet connection** | On its first start Steam downloads about 1.4 GB. |
+| 💾 | **Free disk space** | About 0.5 GB for the app, 1.4 GB for Steam, plus your games. |
+| 👤 | **Your own Steam account** | And the games in it: no game is included. |
+
+Nothing else has to be installed: no Homebrew, no Xcode, no extra tools.
+
 ## Compatibility
 
 I tested on one machine: a MacBook Pro with an M5 Max, on the macOS 27 beta. The status column is a description of how each game played there. The only frame-rate figure is the one below the table. You must own each game on Steam; the names are here only to say what runs.
