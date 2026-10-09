@@ -167,6 +167,83 @@ SSF Play is built on Wine and DXMT, which are open source. The apps' own program
 
 This repository takes reports and requests, not code: there is nothing here to send a pull request against. Changes to the LGPL parts belong to their own projects, or to the source repository named above. Conduct in the issues: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 
+## Support the project
+
+SSF Play is made by one person. If it has been useful to you, you can send a donation in cryptocurrency to one of the addresses below: scan the code with your wallet, or copy the address from the box next to it. The same addresses, each with a copy button and in seven languages, are at <https://play.ssf.network/donate>.
+
+These addresses are not a checkout. A transfer here does not produce a download link; the full edition is sold at <https://play.ssf.network>.
+
+<!-- donate:start (written by scripts/gen-donate.mjs of the website's sources: change an address there, never here) -->
+
+<img src=".github/donate/btc.svg" width="168" align="left" alt="QR code of the address for Bitcoin">
+
+<img src=".github/donate/icon-btc.svg" width="24" height="24" align="top" alt=""> **Bitcoin**<br><sub>BTC, on the Bitcoin network</sub>
+
+A Taproot address (it starts with bc1p). A few older wallets and exchanges cannot send to Taproot addresses yet.
+
+```text
+bc1pmuuq249apm4zs83kmgj2f444xjzdzu6amlc8j056h4mvx9l7wekqy2wgv6
+```
+
+<br clear="left">
+
+<img src=".github/donate/evm.svg" width="168" align="left" alt="QR code of the address for Ethereum and EVM networks">
+
+<img src=".github/donate/icon-evm.svg" width="24" height="24" align="top" alt=""> **Ethereum and EVM networks**<br><sub>ETH, stablecoins and other tokens on Ethereum, Base, Arbitrum, Optimism, Polygon, BNB Chain and other EVM networks</sub>
+
+The same address on every EVM-compatible network: use whichever has the lowest fee for you.
+
+```text
+0x2f46f5b575c4ae379b58d4471b37d2ed55397f6d
+```
+
+<br clear="left">
+
+<img src=".github/donate/sol.svg" width="168" align="left" alt="QR code of the address for Solana">
+
+<img src=".github/donate/icon-sol.svg" width="24" height="24" align="top" alt=""> **Solana**<br><sub>SOL and SPL tokens such as USDC, on Solana</sub>
+
+No memo or tag is needed. Capital and small letters are different characters in a Solana address, so copy it rather than typing it.
+
+```text
+2pZjiHjADu2P9qwxc58pkvRWngGqBn7vE3d9gncu34XJ
+```
+
+<br clear="left">
+
+<img src=".github/donate/xmr.svg" width="168" align="left" alt="QR code of the address for Monero">
+
+<img src=".github/donate/icon-xmr.svg" width="24" height="24" align="top" alt=""> **Monero**<br><sub>XMR, on the Monero network</sub>
+
+A subaddress (it starts with 8). No payment ID is needed.
+
+```text
+85pC3mUAFWnTjYzkEWLS3VQBZdq7FEKSbbLmeiouBnsr5PKqhuenfXPBsMYt8C6da4DnrTJ3RdjksC44zZRE6YpvJaq5fcn
+```
+
+<br clear="left">
+
+<img src=".github/donate/zec.svg" width="208" align="left" alt="QR code of the address for Zcash">
+
+<img src=".github/donate/icon-zec.svg" width="24" height="24" align="top" alt=""> **Zcash**<br><sub>ZEC, shielded, on the Zcash network</sub>
+
+A unified address (it starts with u1) with shielded receivers only, and no transparent one. Send from a wallet that supports unified addresses; an exchange that can only withdraw to transparent t-addresses cannot send here.
+
+```text
+u146gwwuvfh97ufw4l329ry5ld0amxy740xjgj90wkx3qjkwc2yd6dysm6khfmk5m4mlrhkz65kmqnwxw74lytukpuqp4ymvtevsrf5fnt6uwlw4wjuvaj2saux70pjhzjhxz88z23940qgpgvzpuf0qxnehcv30y8pzu522laevjywy28
+```
+
+<br clear="left">
+
+<!-- donate:end -->
+
+Before you send:
+
+- After scanning or pasting, compare the first and last six characters with the address shown here.
+- Use the network named with the address. A transfer made on another network may never arrive.
+- A transfer cannot be cancelled or reversed once it is sent, so check the address and the amount first.
+- Bitcoin, EVM and Solana transfers are public: anyone can look up the amount and the sending address. Monero and shielded Zcash transfers do not show them.
+
 ## Acknowledgements
 
 - [CodeWeavers](https://www.codeweavers.com/), for publishing the CrossOver sources, and the [Wine](https://www.winehq.org/) project.
