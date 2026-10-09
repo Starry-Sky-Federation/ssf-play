@@ -175,7 +175,7 @@ These addresses are not a checkout. A transfer here does not produce a download 
 
 <!-- donate:start (written by scripts/gen-donate.mjs of the website's sources: change an address there, never here) -->
 
-<img src=".github/donate/btc.svg" width="168" align="left" alt="QR code of the address for Bitcoin">
+<img src=".github/donate/btc.svg" width="192" align="left" alt="QR code of the address for Bitcoin">
 
 <img src=".github/donate/icon-btc.svg" width="24" height="24" align="top" alt=""> **Bitcoin**<br><sub>BTC, on the Bitcoin network</sub>
 
@@ -187,7 +187,7 @@ bc1pmuuq249apm4zs83kmgj2f444xjzdzu6amlc8j056h4mvx9l7wekqy2wgv6
 
 <br clear="left">
 
-<img src=".github/donate/evm.svg" width="168" align="left" alt="QR code of the address for Ethereum and EVM networks">
+<img src=".github/donate/evm.svg" width="184" align="left" alt="QR code of the address for Ethereum and EVM networks">
 
 <img src=".github/donate/icon-evm.svg" width="24" height="24" align="top" alt=""> **Ethereum and EVM networks**<br><sub>ETH, stablecoins and other tokens on Ethereum, Base, Arbitrum, Optimism, Polygon, BNB Chain and other EVM networks</sub>
 
@@ -199,7 +199,7 @@ The same address on every EVM-compatible network: use whichever has the lowest f
 
 <br clear="left">
 
-<img src=".github/donate/sol.svg" width="168" align="left" alt="QR code of the address for Solana">
+<img src=".github/donate/sol.svg" width="184" align="left" alt="QR code of the address for Solana">
 
 <img src=".github/donate/icon-sol.svg" width="24" height="24" align="top" alt=""> **Solana**<br><sub>SOL and SPL tokens such as USDC, on Solana</sub>
 
@@ -211,7 +211,7 @@ No memo or tag is needed. Capital and small letters are different characters in 
 
 <br clear="left">
 
-<img src=".github/donate/xmr.svg" width="168" align="left" alt="QR code of the address for Monero">
+<img src=".github/donate/xmr.svg" width="224" align="left" alt="QR code of the address for Monero">
 
 <img src=".github/donate/icon-xmr.svg" width="24" height="24" align="top" alt=""> **Monero**<br><sub>XMR, on the Monero network</sub>
 
@@ -223,7 +223,7 @@ A subaddress (it starts with 8). No payment ID is needed.
 
 <br clear="left">
 
-<img src=".github/donate/zec.svg" width="208" align="left" alt="QR code of the address for Zcash">
+<img src=".github/donate/zec.svg" width="272" align="left" alt="QR code of the address for Zcash">
 
 <img src=".github/donate/icon-zec.svg" width="24" height="24" align="top" alt=""> **Zcash**<br><sub>ZEC, shielded, on the Zcash network</sub>
 
