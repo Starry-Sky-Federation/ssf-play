@@ -25,7 +25,7 @@ Issues are public. Do not put an order number, the e-mail address you paid with 
 6. **The Steam window is black or does not react.** Press `F5` to reconnect, then `F2` to go through Steam's windows.
 7. **A dialog says Steam is running with the settings of another app.** Choose "Restart Steam" to apply the settings of the app you opened. That interrupts downloads and closes a running game.
 8. **A 32-bit game behaves oddly.** Turn the x87 accelerator off with `F8` twice and compare. Say in the report whether it made a difference.
-9. **A graphics crash in a game.** macOS 27 is a beta, and the cause may be the system. If you have installed D3DMetal, switch the graphics layer with `F6` twice and compare.
+9. **A graphics crash in a game.** macOS 27 is a beta, and the cause may be the system. Say in your report which graphics layer was in use: `F7` shows it. For `SSF Play MW2CR.app` and its third mission, see the known issues in the README first.
 
 ## What a useful report contains
 
@@ -98,7 +98,7 @@ cat ~/Library/Application\ Support/SSF\ Play/wine/VERSION-ssfplay
 It looks like this:
 
 ```
-version=1.0.0
+version=1.1.0
 flavor=community
 wine=wine-11.0
 patches=<12 hex digits>

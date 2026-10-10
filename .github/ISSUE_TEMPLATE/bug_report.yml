@@ -60,7 +60,7 @@ body:
         - The Steam window (black, not reacting, not connecting)
         - Starting a game
         - While a game is running (graphics, sound, input, crash)
-        - Switching the graphics layer or installing D3DMetal (F6, F7)
+        - Installing D3DMetal (F6, F7)
         - The x87 accelerator (F8)
         - Language of the dialogs or the window
         - Something else
@@ -77,7 +77,7 @@ body:
         If the first-time setup did not get that far, give the version from the name of the disk image you downloaded.
       render: text
       placeholder: |
-        version=1.0.0
+        version=1.1.0
         flavor=community
         wine=wine-11.0
         patches=0123456789ab

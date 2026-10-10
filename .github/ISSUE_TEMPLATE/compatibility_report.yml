@@ -70,7 +70,7 @@ body:
         `cat ~/Library/Application\ Support/SSF\ Play/wine/VERSION-ssfplay`
       render: text
       placeholder: |
-        version=1.0.0
+        version=1.1.0
         flavor=full
         wine=wine-11.0
         patches=0123456789ab

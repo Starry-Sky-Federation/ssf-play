@@ -21,37 +21,48 @@ Nothing else has to be installed: no Homebrew, no Xcode, no extra tools.
 
 ## Compatibility
 
-I tested on one machine: a MacBook Pro with an M5 Max, on the macOS 27 beta. The status column is a description of how each game played there. The only frame-rate figure is the one below the table. You must own each game on Steam; the names are here only to say what runs.
+I tested on one machine: a MacBook Pro with an M5 Max, on the macOS 27 beta. The status column is a description of how each game played there. The only frame-rate figure is the one below the table. You must own each game yourself, on Steam or, where the table says so, on Battle.net; the names are here only to say what runs.
 
-| App | Runs (you must own it on Steam) | Type | Direct3D goes through | Status |
+| App | Runs (you must own it) | Type | Direct3D goes through | Status |
 |---|---|---|---|---|
-| `SSF Play CS2.app` | Counter-Strike 2 | 64-bit, Direct3D 11 | DXMT, or D3DMetal if you install it yourself | Smooth |
+| `SSF Play CS2.app` | Counter-Strike 2 | 64-bit, Direct3D 11 | D3DMetal once you have installed it yourself, DXMT until then | Smooth |
 | `SSF Play BO2.app` | Call of Duty: Black Ops II, campaign | 32-bit, Direct3D 11 | 32-bit DXMT, with the x87 accelerator | Smooth |
 | `SSF Play BO2 MP.app` | Call of Duty: Black Ops II, multiplayer (bots and custom games) | 32-bit, Direct3D 11 | 32-bit DXMT, with the x87 accelerator | Smooth |
 | `SSF Play BO2 Zombies.app` | Call of Duty: Black Ops II, Zombies | 32-bit, Direct3D 11 | 32-bit DXMT, with the x87 accelerator | Smooth |
 | `SSF Play MW3.app` | Call of Duty: Modern Warfare 3 (2011), campaign and Special Ops | 32-bit, Direct3D 9 | Wine's wined3d on OpenGL, with the x87 accelerator | Smooth |
+| `SSF Play MW2CR.app` | Call of Duty: Modern Warfare 2 Campaign Remastered, campaign (from Battle.net, not from Steam) | 64-bit, Direct3D 11 | D3DMetal, which you install yourself | Plays, with a [known issue](#known-issues) |
 
 The statuses are what I saw while playing the games on the test machine.
 
 Measured by the developer on a MacBook Pro (M5 Max): Call of Duty: Black Ops II (campaign, multiplayer and Zombies) and Call of Duty: Modern Warfare 3 run at about 90 frames per second at 2560×1600 with the highest graphics settings. This is what one machine showed, not a controlled benchmark; other Macs will differ.
 
-A sixth app, for Grand Theft Auto V, is in testing and not released: no download contains it.
+One more app, for Grand Theft Auto V, is in testing and not released: no download contains it.
 
 If you run one of the apps on another Mac, a [compatibility report](https://github.com/Starry-Sky-Federation/ssf-play/issues/new?template=compatibility_report.yml) helps: every status above comes from a single machine. The same form takes a request for a game that has no app yet.
+
+## Known issues
+
+Version 1.1.0:
+
+- **`SSF Play MW2CR.app` freezes when the third mission starts.** The first two missions of Call of Duty: Modern Warfare 2 Campaign Remastered play at the highest graphics settings. When the third mission, "Cliffhanger", starts, the game freezes: four times out of four on the test machine. On the macOS 27 beta the graphics driver reports a hardware error at that moment, and the whole display can stay frozen until the Mac is restarted with the power button. Save your work in other apps before you start that mission. The missions after it are not verified.
+
+  A way around it: with a save in which the campaign is already completed, any mission can be chosen from the mission list, so this one can be skipped. Where the game keeps its saves, and what to mind with a save from somebody else, is in the documentation: <https://play-docs.ssf.network/known-issues/>.
+
+  The cause is not known yet. The mission is hard on graphics drivers elsewhere too: Intel lists a crash of the same game in "Cliffhanger" on some Arc graphics cards under Windows, which a driver update resolved ([Intel support article 000101305](https://www.intel.com/content/www/us/en/support/articles/000101305/graphics.html)).
 
 ## Editions
 
 | | Community Build | Full edition |
 |---|---|---|
 | Price | Free | Shown as $10 and charged as ¥1,500 JPY, once; checkout shows the amount in your local currency |
-| Apps | `SSF Play CS2.app` | All five apps in the table above |
+| Apps | `SSF Play CS2.app` | All six apps in the table above |
 | x87 accelerator | No | Yes |
 | 32-bit DXMT | No | Yes |
 | Disk image | `SSF-Play-Community-<version>.dmg` | `SSF-Play-<version>.dmg` |
 | Where to get it | The [Releases](https://github.com/Starry-Sky-Federation/ssf-play/releases) of this repository | <https://play.ssf.network> |
 
 - **Community Build.** One app, `SSF Play CS2.app`, and a `Read Me.txt`. Its runtime leaves out the x87 accelerator and the 32-bit DXMT; only the old 32-bit games need those, and their apps are not in this build. Use it to find out whether SSF Play runs on your Mac.
-- **Full edition.** All five apps and the complete runtime, with a `Read Me.txt`. It is sold at <https://play.ssf.network>; the terms are at <https://play.ssf.network/legal>. It is not available from this repository.
+- **Full edition.** All six apps and the complete runtime, with a `Read Me.txt`. It is sold at <https://play.ssf.network>; the terms are at <https://play.ssf.network/legal>. It is not available from this repository.
 
 Both disk images are signed with a Developer ID and notarised by Apple, and the notarisation ticket is stapled to each image. Each release here gives the SHA-256 of its disk image; compare it with the output of `shasum -a 256` on the file you downloaded.
 
@@ -62,9 +73,11 @@ All apps share one runtime, one Steam and one library. A Mac that has the full r
 You need an Apple Silicon Mac with macOS 27 (a beta at the time of writing, and the only version tested), your own Steam account, and the games in its library. Allow about 0.5 GB for the app that carries the runtime, the same again for the copy that the setup makes, about 1.4 GB for the Steam client, and the size of each game.
 
 1. Install Rosetta 2 if it is missing: `softwareupdate --install-rosetta --agree-to-license` in Terminal. The apps check for it and show this command if it is not there.
-2. Open the disk image and drag the apps onto the Applications shortcut. With the full edition, drag all five: only `SSF Play CS2.app` carries the runtime (about 0.5 GB). The other four are under 2 MB each and take the runtime from it on their first run.
-3. Open any of the apps. macOS shows its usual question for an app downloaded from the internet; confirm it. The first-time setup then takes a few minutes and runs once. It copies the runtime to `~/Library/Application Support/SSF Play`, asks which graphics layer 64-bit games should use (the open-source DXMT is the default; press Return to keep it), creates an isolated Windows environment and installs Steam.
+2. Open the disk image and drag the apps onto the Applications shortcut. With the full edition, drag all six: only `SSF Play CS2.app` carries the runtime (about 0.5 GB). The other five are under 2 MB each and take the runtime from it on their first run.
+3. Open any of the apps. macOS shows its usual question for an app downloaded from the internet; confirm it. The first-time setup then takes a few minutes and runs once. It copies the runtime to `~/Library/Application Support/SSF Play`, asks once, in an app for a 64-bit game, whether to install Apple's D3DMetal (press Return to carry on with the open-source DXMT), creates an isolated Windows environment and installs Steam.
 4. Sign in with your own Steam account in the window that opens, and install the game from your library. A freshly installed Steam first updates itself (about 1.4 GB). Once the game is installed, press `F9` or open the app again to start it.
+
+`SSF Play MW2CR.app` is for a game from Battle.net. Its first run installs Battle.net in place of Steam, in a Windows environment of its own, and you sign in with your own Battle.net account. The game has only been verified with Apple's D3DMetal, which you install yourself; the app says so when it is missing.
 
 The setup guide with every dialog, and notes on each game, are in the documentation: <https://play-docs.ssf.network>.
 
@@ -76,8 +89,8 @@ These work in the Steam window of an app. Every other key goes to Steam.
 |---|---|
 | `F9` | Start this app's game |
 | `F8` twice | Turn the x87 accelerator on or off (32-bit games only; restarts Steam) |
-| `F7` | Diagnostics panel: checks each part of the chain; from there you can switch the graphics layer or install D3DMetal from your own Game Porting Toolkit download |
-| `F6` twice | Switch the graphics layer of 64-bit games between DXMT and D3DMetal (restarts Steam) |
+| `F7` | Diagnostics panel: checks each part of the chain; in an app for a 64-bit game you can install D3DMetal from there, from your own Game Porting Toolkit download |
+| `F6` | Show the graphics layer in use. It is fixed per app: the apps for 64-bit games use D3DMetal once you have installed it, DXMT until then. Pressed twice, it starts the installation of D3DMetal while that is missing (restarts Steam) |
 | `F5` | Reconnect to Steam's interface |
 | `F2` | Show the next Steam window (main window, sign-in, dialogs) |
 
@@ -102,7 +115,7 @@ The environment variable `SSFPLAY_LANG` (`en`, `zh-Hans`, `zh-Hant`, `ja`, `fr`,
 ## Limits
 
 - **No game content.** Nothing here contains game files. You need your own Steam account and you must own each game on Steam.
-- **Trademarks.** Steam and Counter-Strike are trademarks of Valve Corporation. Call of Duty is a trademark of Activision Publishing, Inc. Grand Theft Auto is a trademark of Take-Two Interactive Software, Inc. SSF Play is not affiliated with them and not endorsed by them.
+- **Trademarks.** Steam and Counter-Strike are trademarks of Valve Corporation. Call of Duty is a trademark of Activision Publishing, Inc. Battle.net is a trademark of Blizzard Entertainment, Inc. Grand Theft Auto is a trademark of Take-Two Interactive Software, Inc. SSF Play is not affiliated with them and not endorsed by them.
 - **Anti-cheat.** Running a game through a compatibility layer carries a low but non-zero risk of a ban. SSF Play does not bypass, disable or modify any anti-cheat. FACEIT and other kernel-level anti-cheat systems are not supported. Try with a secondary account first.
 - **Rosetta 2.** The runtime depends on Rosetta 2. Apple has said that from macOS 28 on, Rosetta stays only for some older games. I do not promise support for macOS 28 or later.
 - **macOS 27 is a beta.** A graphics crash may come from the system and not from this project.
@@ -124,13 +137,13 @@ SSF Play is built on Wine and DXMT, which are open source. The apps' own program
 - **Where the source is.** In the same place as the disk images, at `https://play.ssf.network/source/`, as three archives:
   - [`crossover-sources-26.3.0.tar.gz`](https://play.ssf.network/source/crossover-sources-26.3.0.tar.gz): the Wine sources as CodeWeavers publishes them, unchanged (sha256 `ac99c8ca4b3848f3e81784135f023df266b61c2345726ea55a50b3e030dd6872`);
   - [`dxmt-v0.80-247-gfb45156-src.tar.gz`](https://play.ssf.network/source/dxmt-v0.80-247-gfb45156-src.tar.gz): the unmodified DXMT source at commit [`fb45156`](https://github.com/3Shain/dxmt/tree/fb4515681daefb789a4d0f403c4bdbca88f3b3de), with its submodules;
-  - [`ssf-play-lgpl-sources-1.0.0.tar.gz`](https://play.ssf.network/source/ssf-play-lgpl-sources-1.0.0.tar.gz): the patches and the build scripts, for version 1.0.0.
+  - [`ssf-play-lgpl-sources-1.1.0.tar.gz`](https://play.ssf.network/source/ssf-play-lgpl-sources-1.1.0.tar.gz): the patches and the build scripts, for version 1.1.0.
 
   The content of the third archive is also the repository [ssf-play-lgpl-sources](https://github.com/Starry-Sky-Federation/ssf-play-lgpl-sources). The three archives are also attached to every release of the Community Build in this repository, so the free download has its source next to it as well.
 - **The libraries that come with the runtime.** The runtime carries libraries built with MacPorts. Those of eight projects are under the LGPL: gettext, gmp, gnutls, libiconv, libidn2, libtasn1, libunistring and nettle. The rest are under permissive licences, or offer one as a choice. The source archives of all of them, 20 files, are offered in the same place, unchanged, at `https://play.ssf.network/source/<file name>`. Where each archive comes from upstream, and the commits of the Portfiles the libraries were built with, are recorded in `share/licenses/BUNDLED-PORTS.txt` inside the disk image, together with the size and sha256 of each archive.
 
   <details>
-  <summary>The 20 files, for version 1.0.0</summary>
+  <summary>The 20 files, for version 1.1.0</summary>
 
   | Port | Licence the port declares | Source archive |
   |---|---|---|
