@@ -98,7 +98,7 @@ cat ~/Library/Application\ Support/SSF\ Play/wine/VERSION-ssfplay
 It looks like this:
 
 ```
-version=1.1.1
+version=1.1.2
 flavor=community
 wine=wine-11.0
 patches=<12 hex digits>

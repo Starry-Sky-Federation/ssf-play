@@ -42,7 +42,7 @@ If you run one of the apps on another Mac, a [compatibility report](https://gith
 
 ## Known issues
 
-None known in version 1.1.1.
+None known in version 1.1.2.
 
 - Fixed in 1.1.1: `SSF Play MW2CR.app` froze when the third mission of its game started, and on the macOS 27 beta the whole display could freeze with it. The app now runs the game on DXMT, with a cap on tessellation, and no longer uses Apple's D3DMetal. Details: <https://play-docs.ssf.network/known-issues/>.
 - While you play, use an English keyboard input source (ABC, for example). A Chinese or Japanese input method takes some keys for itself, the space bar among them, and the game then does not get them.
@@ -76,6 +76,14 @@ You need an Apple Silicon Mac with macOS 27 (a beta at the time of writing, and 
 
 `SSF Play MW2CR.app` is for a game from Battle.net. Its first run installs Battle.net in place of Steam, in a Windows environment of its own, and you sign in with your own Battle.net account.
 
+### Apple D3DMetal (optional, for `SSF Play CS2.app`)
+
+D3DMetal is not included and the apps never download it: Apple's licence lets only you download it, for evaluation. If you want it, download it from Apple yourself (free; Apple asks you to sign in with your Apple ID). The file you need is the evaluation environment of Game Porting Toolkit 4.0 beta 3, `Evaluation_environment_for_Windows_games_4.0_beta_3.dmg`, about 27 MB:
+
+<https://download.developer.apple.com/Developer_Tools/Evaluation_environment_for_Windows_games_4.0_beta_1/Evaluation_environment_for_Windows_games_4.0_beta_3.dmg>
+
+The whole toolkit, `Game_Porting_Toolkit_4.0_beta_3.dmg` (about 100 MB), contains the same and works too: <https://download.developer.apple.com/Developer_Tools/Game_Porting_Toolkit_4.0_beta_1/Game_Porting_Toolkit_4.0_beta_3.dmg>. If the addresses no longer work, sign in at <https://developer.apple.com/download/all/> and search for Evaluation environment for Windows games. Then choose the DMG when the setup asks, or later with `F7` → `Install D3DMetal` in `SSF Play CS2.app`. Before installing, the app shows you Apple's licence for D3DMetal, the Software License Agreement for Game Porting Toolkit. To move to a newer build, download it and use `F7` → `Update D3DMetal`. Apple's Metal Shader Converter is not needed.
+
 The setup guide with every dialog, and notes on each game, are in the documentation: <https://play-docs.ssf.network>.
 
 ## Hotkeys
@@ -86,7 +94,7 @@ These work in the Steam window of an app. Every other key goes to Steam.
 |---|---|
 | `F9` | Start this app's game |
 | `F8` twice | Turn the x87 accelerator on or off (32-bit games only; restarts Steam) |
-| `F7` | Diagnostics panel: checks each part of the chain; in `SSF Play CS2.app` you can install D3DMetal from there, from your own Game Porting Toolkit download |
+| `F7` | Diagnostics panel: checks each part of the chain; in `SSF Play CS2.app` you can install D3DMetal from there, from your own Game Porting Toolkit download, and later update it from a newer one |
 | `F6` | Show the graphics layer in use. It is fixed per app: `SSF Play CS2.app` uses D3DMetal once you have installed it, DXMT until then. Pressed twice, it starts the installation of D3DMetal while that is missing (restarts Steam) |
 | `F5` | Reconnect to Steam's interface |
 | `F2` | Show the next Steam window (main window, sign-in, dialogs) |
@@ -134,13 +142,13 @@ SSF Play is built on Wine and DXMT, which are open source. The apps' own program
 - **Where the source is.** In the same place as the disk images, at `https://play.ssf.network/source/`, as three archives:
   - [`crossover-sources-26.3.0.tar.gz`](https://play.ssf.network/source/crossover-sources-26.3.0.tar.gz): the Wine sources as CodeWeavers publishes them, unchanged (sha256 `ac99c8ca4b3848f3e81784135f023df266b61c2345726ea55a50b3e030dd6872`);
   - [`dxmt-v0.80-247-gfb45156-src.tar.gz`](https://play.ssf.network/source/dxmt-v0.80-247-gfb45156-src.tar.gz): the unmodified DXMT source at commit [`fb45156`](https://github.com/3Shain/dxmt/tree/fb4515681daefb789a4d0f403c4bdbca88f3b3de), with its submodules;
-  - [`ssf-play-lgpl-sources-1.1.1.tar.gz`](https://play.ssf.network/source/ssf-play-lgpl-sources-1.1.1.tar.gz): the patches and the build scripts, for version 1.1.1.
+  - [`ssf-play-lgpl-sources-1.1.2.tar.gz`](https://play.ssf.network/source/ssf-play-lgpl-sources-1.1.2.tar.gz): the patches and the build scripts, for version 1.1.2.
 
   The content of the third archive is also the repository [ssf-play-lgpl-sources](https://github.com/Starry-Sky-Federation/ssf-play-lgpl-sources). The three archives are also attached to every release of the Community Build in this repository, so the free download has its source next to it as well.
 - **The libraries that come with the runtime.** The runtime carries libraries built with MacPorts. Those of eight projects are under the LGPL: gettext, gmp, gnutls, libiconv, libidn2, libtasn1, libunistring and nettle. The rest are under permissive licences, or offer one as a choice. The source archives of all of them, 20 files, are offered in the same place, unchanged, at `https://play.ssf.network/source/<file name>`. Where each archive comes from upstream, and the commits of the Portfiles the libraries were built with, are recorded in `share/licenses/BUNDLED-PORTS.txt` inside the disk image, together with the size and sha256 of each archive.
 
   <details>
-  <summary>The 20 files, for version 1.1.1</summary>
+  <summary>The 20 files, for version 1.1.2</summary>
 
   | Port | Licence the port declares | Source archive |
   |---|---|---|
